@@ -25,6 +25,7 @@ d.    Sample questions and Presentation
 
 Q1. . Provide the list of markets in which customer "Atliq Exclusive" operates its
       business in the APAC region.
+      
 SQL Query :  select  market from dim_customer where region = 'APAC'
 
 
@@ -33,6 +34,7 @@ Q2.  What is the percentage of unique product increase in 2021 vs. 2020? The
       unique_products_2020
       unique_products_2021
       percentage_chg
+      
 SQL Query : select count( distinct case when fiscal_year = 2020 then product_code end) as unique_product_2020,
 
   count( distinct case when fiscal_year = 2021 then product_code end) as unique_product_2021,
@@ -46,6 +48,7 @@ Q3. Provide a report with all the unique product counts for each segment and
     2 fields,
     segment
     product_count
+    
 SQL Query : select count(distinct product_code) as product_count , segment from dim_product
             group by segment
             order by product_count desc
@@ -57,6 +60,7 @@ Q4. Follow-up: Which segment had the most increase in unique products in
     product_count_2020
     product_count_2021
     difference
+    
     
 SQL Query : select count(distinct case when T1.fiscal_year = 2020 then T1.product_code end) as product_count_2020,
             count(distinct case when T1.fiscal_year = 2021 then T1.product_code end) as product_count_2021,
@@ -74,6 +78,7 @@ Q5. Get the products that have the highest and lowest manufacturing costs.
     product_code
     product
     manufacturing_cost
+    
 SQL Query : select t1.product_code , t1.product , t2.manufacturing_cost
             from dim_product as t1
             join fact_manufacturing_cost as t2
@@ -93,6 +98,7 @@ SQL Query : select t1.product_code , t1.product , t2.manufacturing_cost
       customer_code
       customer
       average_discount_percentage
+      
 SQL Query : select t1.customer_code, t2.customer , t1.pre_invoice_discount_pct from fact_pre_invoice_deductions as t1
             join dim_customer as t2
             on t1.customer_code = t2.customer_code
@@ -108,6 +114,7 @@ Q7.  Get the complete report of the Gross sales amount for the customer “Atliq
       Month
       Year
       Gross sales Amount
+      
 SQL Query : select sum(a.gross_price * b.sold_quantity) as gross_sale_amount , b.fiscal_year , b.month_column , c.customer
             from fact_gross_price as a
             join fact_sales_monthly as b
@@ -122,6 +129,7 @@ Q8. In which quarter of 2020, got the maximum total_sold_quantity? The final
     output contains these fields sorted by the total_sold_quantity,
     Quarter
     total_sold_quantity
+    
 SQL Query : SELECT 
             CASE
                 WHEN date BETWEEN '2019-09-01' AND '2019-11-01' then CONCAT('[',1,'] ',MONTHNAME(date))  
@@ -139,6 +147,7 @@ Q9. Which channel helped to bring more gross sales in the fiscal year 2021
     channel
     gross_sales_mln
     percentage
+    
 SQL Query : with output as
             (
             select  a.channel , round(sum(b.gross_price*c.sold_quantity/1000000),2) as gross_sale_mln
@@ -165,6 +174,7 @@ Q10. Get the Top 3 products in each division that have a high
       product
       total_sold_quantity
       rank_order
+      
 SQL Query : WITH Output1 AS 
             (
             SELECT P.division, FS.product_code, P.product, SUM(FS.sold_quantity) AS Total_sold_quantity
