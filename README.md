@@ -1,13 +1,14 @@
 # Atlique Sales Analysis
-This repository possesses the information about SQL sales analysis of Atlique harware company. It consist of SQL queries to retrieve  required insights.
+<p>This repository possesses the information about SQL sales analysis of Atlique harware company. It consist of SQL queries to retrieve  required insights.</p>
 
-Domain:  Consumer Goods | Function: Executive Management
-Problem Statement: 
+<p>Domain:  Consumer Goods | Function: Executive Management</p>
+<h2>Problem Statement</h2>
 Atliq Hardwares (imaginary company) is one of the leading computer hardware producers in India and well expanded in other countries too.
-
 However, the management noticed that they do not get enough insights to make quick and smart data-informed decisions. They want to expand their data analytics team by adding several junior data analysts. Tony Sharma, their data analytics director wanted to hire someone who is good at both tech and soft skills. Hence, he decided to conduct a SQL challenge which will help him understand both the skills.
+<h2>Tool Used</h2>
+SQL language: MySQL
 
-Task:  
+<h3>Task</h3>  
 
 Imagine yourself as the applicant for this role and perform the following task
 
@@ -17,13 +18,12 @@ Imagine yourself as the applicant for this role and perform the following task
 4.    Be creative with your presentation, audio/video presentation will have more weightage.
 
 Other resources Provided:
-
-a.    Dataset required to provide 
-b.    Metadata
-c.    Hints (try not to use the hints to develop your skills quicker)
-d.    Sample questions and Presentation
-
-Q1. . Provide the list of markets in which customer "Atliq Exclusive" operates its
+<ul>
+    <li>Dataset required to provide</li> 
+    <li>Metadata</li>
+      <li>Sample questions and Presentation</li>
+</ul>
+Q1. Provide the list of markets in which customer "Atliq Exclusive" operates its
       business in the APAC region.
       
 SQL Query :  
